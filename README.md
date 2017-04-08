@@ -2,7 +2,7 @@
 
 ## Discription
 
-This is a discord I programmed in Node.js to act as a soundboard with some extra commands.
+This is a discord bot I programmed in Node.js to act as a soundboard with some extra commands.
 
 Instructions in this README is going to be aimed at Windows user.
 
