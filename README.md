@@ -14,7 +14,8 @@ Instructions in this README is going to be aimed at Windows user.
   * You will need to manually extract the files, and add the bin folder to your `%PATH%` variable
 * **RECOMMENDED**
   * [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools) in a great module for Node.js to can allow you to compile Node modules (install via Powershell with Admin rights)
-* `npm install discord.js node-opus bufferutil sodium hammerandchisel/erlpack chokidar --save`
+* Node modules to install
+  * `npm install discord.js node-opus bufferutil sodium hammerandchisel/erlpack chokidar --save`
 
 ## Notes
 
