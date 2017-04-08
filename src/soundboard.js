@@ -1,10 +1,17 @@
 const Discord = require('discord.js');
 const config = require('../config/config.json');
 const fs = require('fs');
+const chokidar = require('chokidar');
 const soundDir = (config.sound_dir.slice(-1) != "/") ? config.sound_dir + "/" : config.sound_dir;
 var dispatcher = null;
 var sounds = [];
+var watcher = chokidar.watch(soundDir, {ignored: /^\./, persistent: true});
 
+watcher
+    .on('add', function(path) {sounds = []; scanSounds()})
+    .on('unlink', function(path) {sounds = []; scanSounds()})
+    .on('error', function(error) {console.error('Error happened', error);})
+    
 function scanSounds() {
 var scannedFiles = fs.readdirSync(soundDir);
     console.log("\n===== Scanning for sounds in " + soundDir + " =====");
