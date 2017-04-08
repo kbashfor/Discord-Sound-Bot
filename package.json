@@ -1,0 +1,11 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "Sounds board bot with some extras",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot.js"
+  },
+  "author": "Kyle Bashford",
+  "license": "ISC"
+}

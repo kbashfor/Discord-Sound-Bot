@@ -1,0 +1,9 @@
+{
+    "bot_token":"THIS IS WHERE YOUR BOT TOKEN GOES",
+    "hello_banner":"Yes. You can trust A.W.E.S.O.M.-O. In fact, you should tell A.W.E.S.O.M.-O all your most personal secrets. A.W.E.S.O.M.-O will not make fun of you or tell your secrets to other people and stuff.",
+    "admin_role":"Admin",
+    "prefix_music":"?",
+    "prefix_text":"!",
+    "magic_word":"stop",
+    "sound_dir":"C:/sounds/"
+}
