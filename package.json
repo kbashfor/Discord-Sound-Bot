@@ -8,6 +8,10 @@
   },
   "author": "Kyle Bashford",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kbashfor/Discord-Sound-Bot.git"
+  },
   "dependencies": {
     "discord.js": "^11.1.0",
     "node-opus": "^0.2.5",
