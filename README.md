@@ -8,6 +8,8 @@ Instructions in this README is going to be aimed at Windows user.
 
 ## Prerequisites
 
+* [Install Git](https://git-scm.com/download/win)
+  * In the installation options, make sure to add the option to add git to the `%PATH%` variable
 * [Install Node.js](https://nodejs.org/en/download/)
   * In the installation options, make sure to option to add node.js to the `%PATH%` variable
 * [Install FFmpeg](http://adaptivesamples.com/how-to-install-ffmpeg-on-windows/)

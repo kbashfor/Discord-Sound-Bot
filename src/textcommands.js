@@ -43,7 +43,7 @@ function textCommand(msg) {
         case (command.match(/^d[0-9]+$/) || {}).input:
             // you can't roll a d0 or a d1
             var sides = command.match(/[0-9]+$/)[0];
-            if (sides != 1 && sides != 0) {
+            if (sides != 1 && sides != 0 && sides < Number.MAX_SAFE_INTEGER) {
                 var diceroll = Math.floor(Math.random() * sides) + 1;
                 msg.reply((sides == 20 && diceroll == 20) ? " rolled a NAT 20, I SHIT YOU NOT!" : " rolled a d" + sides + " and rolled a total of " + diceroll);    
             }
@@ -53,7 +53,7 @@ function textCommand(msg) {
             var rolls = command.match(/^[0-9]+/)[0];
             var sides = command.match(/[0-9]+$/)[0];
             var total = 0;
-            if (sides != 1 && sides != 0 && rolls != 0) {
+            if (sides != 1 && sides != 0 && rolls != 0 && sides < Number.MAX_SAFE_INTEGER && rolls < Number.MAX_SAFE_INTEGER) {
                 for (var i = 0; i < rolls; i++) {
                    total += Math.floor(Math.random() * sides) + 1;
                 }
