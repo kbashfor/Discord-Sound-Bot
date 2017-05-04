@@ -24,7 +24,7 @@ function textCommand(msg) {
             }
             break;
         case "list":
-            msg.author.dmChannel.send(sound.listSounds());
+            sound.listSounds(msg);
             msg.delete();
             break;
         //http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
