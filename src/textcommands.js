@@ -24,7 +24,7 @@ function textCommand(msg) {
             }
             break;
         case "list":
-            msg.author.dmChannel.sendMessage(sound.listSounds());
+            msg.author.dmChannel.send(sound.listSounds());
             msg.delete();
             break;
         //http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
@@ -33,11 +33,11 @@ function textCommand(msg) {
             msg.delete();
             break;
         case "insult":
-            msg.channel.sendMessage(insults[Math.floor(Math.random() * insults.length)]);
+            msg.channel.send(insults[Math.floor(Math.random() * insults.length)]);
             msg.delete();
             break;
         case "joke":
-            msg.channel.sendMessage(jokes[Math.floor(Math.random() * jokes.length)]);
+            msg.channel.send(jokes[Math.floor(Math.random() * jokes.length)]);
             msg.delete();
             break;
         case (command.match(/^d[0-9]+$/) || {}).input:
