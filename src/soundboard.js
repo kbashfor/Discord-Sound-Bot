@@ -10,7 +10,7 @@ var watcher = chokidar.watch(soundDir, {ignored: /^\./, persistent: true, interv
 watcher
     .on('add', path => addSound(path))
     .on('unlink', path => removeSound(path))
-    .on('ready', () => console.log('\n===== Sound Scan Complete ====='))
+    .on('ready', () => console.log('===== Sound Scan Complete ====='))
     .on('error', error => console.error('Error happened', error))
 
 function addSound(file) {
@@ -47,7 +47,11 @@ function listSounds(msg) {
 
 function voiceCommand(msg, bot) {
     var command = msg.content.slice(1).toLowerCase();
-    var vchannel = msg.member.voiceChannel;
+    try {
+        var vchannel = msg.member.voiceChannel;
+    } catch(error) {
+        var vchannel = null;
+    }
     // regardless, delete the message unless it's only a ?
     if(command) { msg.delete(); }
     
