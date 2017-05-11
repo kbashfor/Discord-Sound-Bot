@@ -1,29 +1,30 @@
 const Discord = require('discord.js');
 const config = require('../config/config.json');
-const fs = require('fs');
 const chokidar = require('chokidar');
 const soundDir = (config.sound_dir.slice(-1) != "/") ? config.sound_dir + "/" : config.sound_dir;
 const maxMessageLength = 2000;
 var dispatcher = null;
 var sounds = [];
-var watcher = chokidar.watch(soundDir, {ignored: /^\./, persistent: true});
+var watcher = chokidar.watch(soundDir, {ignored: /^\./, persistent: true, interval: 300, cwd: soundDir});
 
 watcher
-    .on('add', function(path) {sounds = []; scanSounds()})
-    .on('unlink', function(path) {sounds = []; scanSounds()})
-    .on('error', function(error) {console.error('Error happened', error);})
-    
-function scanSounds() {
-var scannedFiles = fs.readdirSync(soundDir);
-    console.log("\n===== Scanning for sounds in " + soundDir + " =====");
-    scannedFiles.forEach(function(file) {
-        var command = file.replace(/\.[^/.]+$/, "").toLocaleLowerCase();
-        if (command != config.magic_word) {
-            console.log("Adding sound: " + file);
-            sounds.push({command: command, file: file});
-        }
-    });
-    console.log("===== Ending sound scan =====\n");
+    .on('add', path => addSound(path))
+    .on('unlink', path => removeSound(path))
+    .on('ready', () => console.log('\n===== Sound Scan Complete ====='))
+    .on('error', error => console.error('Error happened', error))
+
+function addSound(file) {
+    var command = file.replace(/\.[^/.]+$/, "").toLocaleLowerCase();
+    if (command != config.magic_word) {
+        console.log("Adding sound: " + command);
+        sounds.push({command: command, file: file});
+    }
+}
+
+function removeSound(file) {
+    var command = file.replace(/\.[^/.]+$/, "").toLocaleLowerCase();
+    console.log("Removing sound: " + command);
+    sounds = sounds.filter(item => item.command !== command);
 }
 
 function listSounds(msg) {
@@ -67,4 +68,4 @@ function voiceCommand(msg, bot) {
     }
 }
 
-module.exports = {scanSounds, voiceCommand, listSounds}
+module.exports = {voiceCommand, listSounds}

@@ -7,12 +7,9 @@ const config = require('../config/config.json');
 const textcom = require('./textcommands');
 const voice = require('./soundboard');
 
-// scan all sounds
-voice.scanSounds();
-
 // bot ready
 bot.on('ready', () => {
-    console.log('The bot is online');
+    console.log('\nThe bot is online\n');
 });
 
 // listener

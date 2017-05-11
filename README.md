@@ -16,8 +16,8 @@ Instructions in this README is going to be aimed at Windows user.
   * You will need to manually extract the files, and add the bin folder to your `%PATH%` variable
 * **RECOMMENDED**
   * [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools) in a great module for Node.js to can allow you to compile Node modules (install via Powershell with Admin rights)
-* Node modules to install
-  * `npm install discord.js node-opus bufferutil sodium hammerandchisel/erlpack chokidar --save`
+* Installing the Sound Bot
+  * In the same directory as the package.json file, run `npm install` which will install all the dependencies. Then afterwords you will need to install the Peer Dependencies manually afterwords.
 
 ## Notes
 
