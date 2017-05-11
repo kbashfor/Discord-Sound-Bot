@@ -8,9 +8,7 @@ const textcom = require('./textcommands');
 const voice = require('./soundboard');
 
 // bot ready
-bot.on('ready', () => {
-    console.log('\nThe bot is online\n');
-});
+bot.on('ready', () => console.log('\nThe bot is online\n'))
 
 // listener
 bot.on('message', (message) => {
